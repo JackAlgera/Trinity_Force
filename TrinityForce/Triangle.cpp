@@ -15,7 +15,7 @@ Triangle::~Triangle()
 {
 }
 
-sf::Vector2f Triangle::getMiddleAB()
+sf::Vector2f Triangle::getMiddleAB()				//Gives us the middle position between the corners A and B
 {
 	if ((int) cornerB.y == (int) cornerC.y)
 	{
@@ -29,7 +29,7 @@ sf::Vector2f Triangle::getMiddleAB()
 	}
 }
 
-sf::Vector2f Triangle::getMiddleBC()
+sf::Vector2f Triangle::getMiddleBC()				//Gives us the middle position between the corners B and C
 {
 	if ((int)cornerB.y == (int)cornerC.y)
 	{
@@ -43,7 +43,7 @@ sf::Vector2f Triangle::getMiddleBC()
 	}
 }
 
-sf::Vector2f Triangle::getMiddleCA()
+sf::Vector2f Triangle::getMiddleCA()				//Gives us the middle position between the corners C and A
 {
 	if ((int)cornerB.y == (int)cornerC.y)
 	{
@@ -57,7 +57,7 @@ sf::Vector2f Triangle::getMiddleCA()
 	}
 }
 
-void Triangle::middleTriangles(std::vector<Triangle>& temp)
+void Triangle::middleTriangles(std::vector<Triangle>& temp)			//Adds the 3 new corner triangles to the vector of Triangles
 {
 	sf::Vector2f midAB = this->getMiddleAB();
 	sf::Vector2f midBC = this->getMiddleBC();
@@ -66,16 +66,14 @@ void Triangle::middleTriangles(std::vector<Triangle>& temp)
 	Triangle triangle1(cornerA, midAB, midCA);
 	Triangle triangle2(midAB, cornerB, midBC);
 	Triangle triangle3(midCA, midBC, cornerC);
-	//Triangle triangleMid(midAB, midBC, midCA);
 
 	temp.push_back(triangle1);
 	temp.push_back(triangle2);
 	temp.push_back(triangle3);
-	//temp.push_back(triangleMid);
 
 }
 
-void Triangle::draw(sf::RenderWindow& window)
+void Triangle::draw(sf::RenderWindow& window)				//Draws the triangle onto the window
 {
 	sf::VertexArray triangle(sf::LineStrip, 4);
 	triangle[0].position = cornerA;

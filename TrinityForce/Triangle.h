@@ -1,6 +1,10 @@
 #pragma once
 #include <SFML\Graphics.hpp>
 
+/*
+Class that handles each triangle
+A triangle consisting of 3 corners ; A, B and C.
+*/
 class Triangle
 {
 public:

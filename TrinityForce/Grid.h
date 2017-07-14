@@ -2,6 +2,10 @@
 #include <SFML\Graphics.hpp>
 #include "Triangle.h"
 
+/*
+Class that handles the different triangles by use of a vector.
+*/
+
 
 class Grid
 {
